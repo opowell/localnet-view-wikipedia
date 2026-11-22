@@ -1,0 +1,216 @@
+/* Wikipedia: the title and the main sections' headings in a serif over a hairline rule, the text in a sans at 16px,
+   links blue; the facts in a grey box, a table's cells ruled with its headings shaded, a picture framed over its
+   caption. Light as the site is by default, its night colours where Localnet is dark. */
+& {
+  --wp-bg: #101418;
+  --wp-fg: #eaecf0;
+  --wp-dim: #a2a9b1;
+  --wp-rule: #72777d;
+  --wp-line: #54595d;
+  --wp-box: #202122;
+  --wp-shade: #27292d;
+  --wp-link: #88a3e8;
+  --wp-serif: 'Linux Libertine', 'Georgia', 'Times', 'Source Serif Pro', serif;
+  --wp-sans: sans-serif;
+}
+
+:root[data-theme='light'] & {
+  --wp-bg: #fff;
+  --wp-fg: #202122;
+  --wp-dim: #54595d;
+  --wp-rule: #a2a9b1;
+  --wp-line: #c8ccd1;
+  --wp-box: #f8f9fa;
+  --wp-shade: #eaecf0;
+  --wp-link: #36c;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) & {
+    --wp-bg: #fff;
+    --wp-fg: #202122;
+    --wp-dim: #54595d;
+    --wp-rule: #a2a9b1;
+    --wp-line: #c8ccd1;
+    --wp-box: #f8f9fa;
+    --wp-shade: #eaecf0;
+    --wp-link: #36c;
+  }
+}
+
+.reader-viewport {
+  background: var(--wp-bg);
+  font-family: var(--wp-sans);
+}
+
+.reader-flow {
+  padding: 0 12px;
+}
+
+.reader-flow p,
+.reader-flow li,
+.reader-item {
+  color: var(--wp-fg);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.reader-link {
+  color: var(--wp-link);
+}
+
+/* The head: the title in a serif over a rule, where it comes from under it. */
+.wp-head {
+  margin-bottom: 16px;
+}
+
+.wp-title {
+  margin: 0 0 0.25em;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--wp-rule);
+  color: var(--wp-fg);
+  font-family: var(--wp-serif);
+  font-size: 1.8em;
+  font-weight: normal;
+  line-height: 1.375;
+}
+
+.wp-tagline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 12px;
+  color: var(--wp-dim);
+  font-size: 14px;
+}
+
+.wp-site {
+  color: var(--wp-link);
+  text-decoration: none;
+}
+
+/* A section's heading in a serif over a rule, a subsection's in bold, a smaller one's barely larger than the text. */
+.reader-flow .reader-heading {
+  margin: 1em 0 0.25em;
+  color: var(--wp-fg);
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+.reader-flow .reader-heading[data-level='1'],
+.reader-flow .reader-heading[data-level='2'] {
+  margin-top: 1em;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--wp-rule);
+  font-family: var(--wp-serif);
+  font-size: 1.5em;
+  font-weight: normal;
+  line-height: 1.375;
+}
+
+.reader-flow .reader-heading[data-level='4'],
+.reader-flow .reader-heading[data-level='5'],
+.reader-flow .reader-heading[data-level='6'] {
+  font-size: 1em;
+}
+
+/* A footnote's mark in the links' blue; a footnote small, numbered as a list of references is. */
+.reader-note-mark {
+  color: var(--wp-link);
+}
+
+.reader-flow .reader-note {
+  color: var(--wp-fg);
+  font-size: 14px;
+}
+
+.reader-flow .reader-note::before {
+  content: attr(data-label) '.';
+  color: var(--wp-dim);
+}
+
+.reader-quote {
+  padding: 0 0 0 1.6em;
+  border-left: 4px solid var(--wp-shade);
+  color: var(--wp-fg);
+}
+
+.reader-code {
+  border: 1px solid var(--wp-line);
+  border-radius: 2px;
+  background: var(--wp-box);
+  color: var(--wp-fg);
+}
+
+/* A table ruled cell by cell, its headings shaded and centred, on the boxes' grey. */
+.reader-table {
+  border: 1px solid var(--wp-rule);
+  background: var(--wp-box);
+  color: var(--wp-fg);
+  font-size: 14px;
+}
+
+.reader-table th,
+.reader-table td,
+.reader-table th:first-child,
+.reader-table td:first-child {
+  padding: 0.2em 0.4em;
+  border: 1px solid var(--wp-rule);
+}
+
+.reader-table th {
+  background: var(--wp-shade);
+  text-align: center;
+}
+
+/* The facts: a grey box, each fact's name bold beside it, without rules between them. */
+.reader-fact-table {
+  border-color: var(--wp-rule);
+  line-height: 1.5;
+}
+
+.reader-fact-table td,
+.reader-fact-table td:first-child {
+  padding: 0.25em 0.5em;
+  border: 0;
+}
+
+.reader-fact-table td:first-child {
+  color: var(--wp-fg);
+  font-weight: bold;
+}
+
+/* A picture framed, its caption under it in the frame. */
+.reader-figure {
+  padding: 3px;
+  border: 1px solid var(--wp-line);
+  background: var(--wp-box);
+}
+
+.reader-figure figcaption {
+  margin: 0;
+  padding: 6px 3px 3px;
+  color: var(--wp-fg);
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+.reader-post-title,
+.reader-comments-head .reader-heading {
+  color: var(--wp-fg);
+  font-family: var(--wp-serif);
+  font-weight: normal;
+}
+
+.reader-comment p,
+.reader-comment li {
+  font-size: 15px;
+}
+
+.reader-comment-author {
+  color: var(--wp-link);
+}
+
+.reader-comment-replies {
+  border-left-color: var(--wp-line);
+}

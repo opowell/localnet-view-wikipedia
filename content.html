@@ -1,0 +1,9 @@
+<div class="wp-head">
+  <h1 class="wp-title">{{ item.title }}</h1>
+  <div class="wp-tagline">
+    <span data-if="item.site">From <a class="wp-site" href="{{ item.page }}">{{ item.site }}</a></span>
+    <span data-if="item.author" class="wp-author">by {{ item.author }}</span>
+    <span data-if="item.ago">{{ item.ago }}</span>
+    <span data-if="item.length">{{ item.length }}</span>
+  </div>
+</div>

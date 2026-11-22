@@ -1,0 +1,6 @@
+{
+  "name": "Wikipedia views",
+  "views": [
+    { "name": "Wikipedia", "kind": "content", "hint": "Serif headings over rules, boxed facts, tables and pictures", "template": "content.html", "style": "content.css" }
+  ]
+}
